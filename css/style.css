@@ -411,6 +411,11 @@ img {
     fill: #afb1b8;
 }
 
+.client-link:hover, 
+.client-link:focus {
+    border-color: var(--accent-color);
+}
+
 .client-link:hover .client-icon, 
 .client-link:focus .client-icon {
     /* border-color: var(--accent-color); */
