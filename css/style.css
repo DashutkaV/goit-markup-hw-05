@@ -130,12 +130,42 @@ img {
     display: flex;
 }
 
+/* .header-navigation-list .header-navigation-link{
+    position: relative;
+    color: var(--second-title-color);
+    font-weight: 500;
+    line-height: 1.33;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    display: block;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    transition: color 250ms var(--accent-color);
+}  */
+
 .header-navigation-link {
+    position: relative;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--header-color); 
+}
+
+.header-navigation-list .active {
+    display: block;
+    color: var(--accent-color);
+}
+
+.header-navigation-list .active:after {
+    content: "";
+    position: absolute;
+    bottom: -34px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
 }
 
 .header-navigation-item:not(:last-child) {
