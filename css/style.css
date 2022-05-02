@@ -10,7 +10,7 @@
     --bcg-color: #2F303A;
     --padding-top: 94px;
     --padding-bottom: 94px;
-    --cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 
 body {
@@ -95,14 +95,15 @@ img {
     background: var(--accent-color);
     border-radius: 4px;
     border: transparent;
-    transition: color 250ms;
+    transition: color var(--cubic), background-color var(--cubic), box-shadow var(--cubic); 
 }
 
 .btn:hover, 
 .btn:focus {
-    /* color: var(--btn-color); */
-    transition: var(--cubic);
-}  
+    color: var(--btn-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
 /*-------------HEADER---------------*/
 
@@ -131,26 +132,14 @@ img {
     display: flex;
 }
 
-/* .header-navigation-list .header-navigation-link{
-    position: relative;
-    color: var(--second-title-color);
-    font-weight: 500;
-    line-height: 1.33;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    display: block;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    transition: color 250ms var(--accent-color);
-}  */
-
 .header-navigation-link {
     position: relative;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
-    color: var(--header-color); 
+    color: var(--header-color);
+    transition: color var(--cubic);
 }
 
 .header-navigation-list .active {
@@ -176,7 +165,6 @@ img {
 .header-navigation-link:hover, 
 .header-navigation-link:focus {
     color: var(--accent-color);
-    transition: var(--cubic);
 }
 
 .header-list{
@@ -196,13 +184,12 @@ img {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--header-link-color);
-    transition: color 250ms linear;
+    transition: color var(--cubic);
 }
 
 .header-link:hover,
 .header-link:focus {
     color: var(--accent-color);
-    transition: var(--cubic);
 }
 
 .icon-contact {
@@ -331,11 +318,12 @@ img {
 }
 
 .works-meta {
-    padding: 27px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: 700;
     font-size: 14px;
     /* line-height: 1.14px; */
-    text-align: center;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #FFFFFF;
@@ -406,13 +394,13 @@ img {
     justify-content: center;
     align-items: center;
     fill: rgba(175, 177, 184, 1);
+    transition: fill var(--cubic), background-color var(--cubic);
 }
 
 .team-soc-link:hover, 
 .team-soc-link:focus {
     background-color: var(--accent-color);
     fill: var(--btn-color);
-    transition: var(--cubic);
 }
 
 
@@ -442,45 +430,27 @@ img {
     align-items: center;
     border: 1px solid rgba(175, 177, 184, 1);
     border-radius: 4px;
+    transition: border var(--cubic);
 }
 
 .client-icon {
     fill: #afb1b8;
+    transition: fill var(--cubic);
 }
 
 .client-link:hover, 
 .client-link:focus {
     border-color: var(--accent-color);
-    transition: var(--cubic);
+
 }
 
 .client-link:hover .client-icon, 
 .client-link:focus .client-icon {
-    /* border-color: var(--accent-color); */
     fill: var(--accent-color);
-    transition: var(--cubic);
 }
 
 /*------------PORTFOLIO---------------*/
 
-/* .portfolio-container {
-    display: flex;
-    justify-content: baseline;
-
-}
-
-.portfolio-container::before {
-    content: '';
-    width: 1600px;
-    height: 0px;
-    margin-top: -94px;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: start;
-    background: #C4C4C4;
-    border: 1px solid #ECECEC;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-} */
 
 .portfolio-filtres {
     display: flex;
@@ -506,14 +476,6 @@ img {
     padding: 6px 22px;
 }
 
-.btn:hover, 
-.btn:focus {
-    color: var(--btn-color);
-    background-color: var(--accent-color);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    transition: var(--cubic);
-}
-
 .portfolio-list {
     display: flex;
     flex-wrap: wrap;
@@ -526,44 +488,26 @@ img {
 
 .portfolio-content {
     display: block;
+    transition: box-shadow var(--cubic);
 }
 
 .portfolio-content:hover .portfolio-actions,
 .portfolio-content:focus .portfolio-actions {
-    cursor: pointer;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;    
     transform: translateY(0%);
     transition: var(--cubic);
-    /* opacity: 1; */
 }
+
+.portfolio-content:hover,
+.portfolio-content:focus {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
 
 .portfolio-meta {
     position: relative;
     overflow: hidden;
 }
-
-/* .portfolio-meta::before {
-    position: absolute;
-    display: inline-block;
-    content: "";
-    width: 100%;
-    height: 100%;
-    color: #FFFFFF;
-    position: absolute;
-    padding: 63px 24px;
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.56;
-    background-color: rgba(33, 150, 243, 0.9);
-    opacity: 0;
-} */
-
-
-/* .portfolio-item .portfolio-meta:hover::before {
-    opacity: 1;
-} */
-
 
 .portfolio-actions {
     position: absolute;
@@ -580,9 +524,7 @@ img {
     transition: var(--cubic);
     bottom: 0;
     overflow: auto;
-    /* opacity: 0; */
 
-    /* transition: 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 
@@ -640,6 +582,7 @@ img {
 
 .footer-address {
     color: var(--footer-color);
+    transition: color var(--cubic);
 }
 
 .footer-link {
@@ -648,18 +591,17 @@ img {
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
+    transition: color var(--cubic);
 }
 
 .footer-link:hover, 
 .footer-link:focus {
     color: var(--accent-color);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-address:hover, 
 .footer-address:focus {
     color: var(--accent-color);
-    transition: var(--cubic);
 }
 
 .footer-item:not(:first-child) {
@@ -705,19 +647,17 @@ img {
     justify-content: center;
     align-items: center;
     fill: var(--footer-color);
+    transform: fill var(--cubic), background-color var(--cubic);
 }
 
 .contacts-soc-link:hover {
     background-color: var(--accent-color);
     fill: var(--btn-color);
-    transition: var(--cubic);
 }
 
 .contacts-soc-link:focus {
     background-color: var(--accent-color);
     fill: var(--btn-color);
-    border: 0px;
-    transition: var(--cubic);
 }
 
 /* ---------backdrop ----------*/
